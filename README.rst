@@ -34,6 +34,9 @@ References
 
 .. [3] `io writer to string golang - Google search <https://www.google.com/search?q=io+writer+to+string+golang>`_
 
+.. [4] | `godoc code - Google search <https://www.google.com/search?q=godoc+code>`_
+       | `godoctricks - GoDoc <https://godoc.org/github.com/fluhus/godoc-tricks>`_
+
 .. _Go: https://golang.org/
 .. _Ubuntu 16.10: http://releases.ubuntu.com/16.10/
 .. _Go 1.7.5: https://golang.org/dl/

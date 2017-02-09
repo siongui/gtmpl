@@ -23,3 +23,16 @@ func Textdomain(domain string) string {
 func Translate(msgid string) string {
 	return gettext.PGettext("", msgid)
 }
+
+/*
+
+Shorthand for
+
+	BindTextdomain("messages", dirpath, nil)
+	Textdomain("messages")
+
+*/
+func SetupMessagesDomain(dirpath string) {
+	gettext.BindTextdomain("messages", dirpath, nil)
+	Textdomain("messages")
+}

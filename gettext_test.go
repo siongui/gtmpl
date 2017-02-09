@@ -5,8 +5,7 @@ import (
 )
 
 func TestGettext(t *testing.T) {
-	BindTextdomain("messages", "locale/", nil)
-	Textdomain("messages")
+	SetupMessagesDomain("locale/")
 
 	SetLocale("zh_TW")
 	if Translate("Pāḷi Dictionary") != "巴利字典" {

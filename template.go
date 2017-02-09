@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 )
 
-// Recursively parse all files in directory, including sub-directories.
-func ParseDirectory(dir string) (*template.Template, error) {
+// Recursively get all file paths in directory, including sub-directories.
+func GetAllFilePathsInDirectory(dirpath string) ([]string, error) {
 	var paths []string
-	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(dirpath, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -22,5 +22,33 @@ func ParseDirectory(dir string) (*template.Template, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	return paths, nil
+}
+
+// Recursively parse all files in directory, including sub-directories.
+func ParseDirectory(dirpath string) (*template.Template, error) {
+	paths, err := GetAllFilePathsInDirectory(dirpath)
+	if err != nil {
+		return nil, err
+	}
 	return template.ParseFiles(paths...)
+}
+
+// Recursively parse all files in directory, including sub-directories with
+// *gettext* function.
+//
+// *gettext* function will translate input string according to installed
+// translations and locale.
+func ParseDirectoryWithGettextFunction(dirpath string) (*template.Template, error) {
+	paths, err := GetAllFilePathsInDirectory(dirpath)
+	if err != nil {
+		return nil, err
+	}
+
+	funcMap := template.FuncMap{
+		"gettext": Translate,
+	}
+
+	return template.New("").Funcs(funcMap).ParseFiles(paths...)
 }
