@@ -1,0 +1,38 @@
+===================
+Go Template Utility
+===================
+
+Utility for Go_ tempalte (`text/template`_ and `html/template`_).
+
+Development Environment:
+
+  - `Ubuntu 16.10`_
+  - `Go 1.7.5`_
+
+
+Install
++++++++
+
+.. code-block:: bash
+
+  go get -u github.com/siongui/gotemplateutil
+
+
+UNLICENSE
++++++++++
+
+Released in public domain. See UNLICENSE_.
+
+
+References
+++++++++++
+
+.. [1] `Golang Template Inheritance (Python Jinja2 extends & include) <https://siongui.github.io/2017/02/05/go-template-inheritance-jinja2-extends-include/>`_
+
+.. _Go: https://golang.org/
+.. _Ubuntu 16.10: http://releases.ubuntu.com/16.10/
+.. _Go 1.7.5: https://golang.org/dl/
+.. _git clone: https://www.google.com/search?q=git+clone
+.. _text/template: https://golang.org/pkg/text/template/
+.. _html/template: https://golang.org/pkg/html/template/
+.. _UNLICENSE: http://unlicense.org/
