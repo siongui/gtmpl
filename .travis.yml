@@ -1,0 +1,2 @@
+language: go
+script: go get github.com/chai2010/gettext-go/gettext && go test
