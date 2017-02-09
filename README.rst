@@ -29,6 +29,11 @@ References
 
 .. [1] `Golang Template Inheritance (Python Jinja2 extends & include) <https://siongui.github.io/2017/02/05/go-template-inheritance-jinja2-extends-include/>`_
 
+.. [2] `GitHub - chai2010/gettext-go: GNU gettext for Go <https://github.com/chai2010/gettext-go>`_
+       (`godoc <https://godoc.org/github.com/chai2010/gettext-go/gettext>`__)
+
+.. [3] `io writer to string golang - Google search <https://www.google.com/search?q=io+writer+to+string+golang>`_
+
 .. _Go: https://golang.org/
 .. _Ubuntu 16.10: http://releases.ubuntu.com/16.10/
 .. _Go 1.7.5: https://golang.org/dl/
