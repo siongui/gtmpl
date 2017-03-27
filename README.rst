@@ -1,8 +1,25 @@
 ===================
-Go Template Utility
+Go Template Manager
 ===================
 
-Utility for Go_ tempalte (`text/template`_ and `html/template`_).
+.. image:: https://img.shields.io/badge/Language-Go-blue.svg
+   :target: https://golang.org/
+
+.. image:: https://godoc.org/github.com/siongui/gotemplateutil?status.png
+   :target: https://godoc.org/github.com/siongui/gotemplateutil
+
+.. image:: https://api.travis-ci.org/siongui/gotemplateutil.png?branch=master
+   :target: https://travis-ci.org/siongui/gotemplateutil
+
+.. image:: https://goreportcard.com/badge/github.com/siongui/gotemplateutil
+   :target: https://goreportcard.com/report/github.com/siongui/gotemplateutil
+
+.. image:: https://img.shields.io/badge/license-Unlicense-blue.svg
+   :target: https://raw.githubusercontent.com/siongui/gotemplateutil/master/UNLICENSE
+
+.. image:: https://img.shields.io/badge/Status-Beta-brightgreen.svg
+
+Go_ tempalte manager (`text/template`_ and `html/template`_).
 
 Development Environment:
 
