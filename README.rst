@@ -35,6 +35,29 @@ Install
   go get -u github.com/siongui/gotemplateutil
 
 
+Idea (not implemented)
+++++++++++++++++++++++
+
+.. code-block:: go
+
+  import "html/template"
+
+  type TemplateManager struct {
+  	StdTmpl	*template.Template
+  }
+
+  // include gettext by default
+  tm := gotm.New(name, dir)
+
+  // i18n
+  tm.SetupMessagesDomain("locale/")
+
+  tm.SetLocale("zh_TW")
+
+  // output
+  tm.Render(io.Writer, tmplname, yamlfile)
+
+
 UNLICENSE
 +++++++++
 
