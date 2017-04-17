@@ -5,17 +5,17 @@ Go Template Manager
 .. image:: https://img.shields.io/badge/Language-Go-blue.svg
    :target: https://golang.org/
 
-.. image:: https://godoc.org/github.com/siongui/gotemplateutil?status.png
-   :target: https://godoc.org/github.com/siongui/gotemplateutil
+.. image:: https://godoc.org/github.com/siongui/gotm?status.png
+   :target: https://godoc.org/github.com/siongui/gotm
 
-.. image:: https://api.travis-ci.org/siongui/gotemplateutil.png?branch=master
-   :target: https://travis-ci.org/siongui/gotemplateutil
+.. image:: https://api.travis-ci.org/siongui/gotm.png?branch=master
+   :target: https://travis-ci.org/siongui/gotm
 
-.. image:: https://goreportcard.com/badge/github.com/siongui/gotemplateutil
-   :target: https://goreportcard.com/report/github.com/siongui/gotemplateutil
+.. image:: https://goreportcard.com/badge/github.com/siongui/gotm
+   :target: https://goreportcard.com/report/github.com/siongui/gotm
 
 .. image:: https://img.shields.io/badge/license-Unlicense-blue.svg
-   :target: https://raw.githubusercontent.com/siongui/gotemplateutil/master/UNLICENSE
+   :target: https://raw.githubusercontent.com/siongui/gotm/master/UNLICENSE
 
 .. image:: https://img.shields.io/badge/Status-Beta-brightgreen.svg
 
@@ -32,7 +32,7 @@ Install
 
 .. code-block:: bash
 
-  go get -u github.com/siongui/gotemplateutil
+  go get -u github.com/siongui/gotm
 
 
 Idea (not implemented)
@@ -40,7 +40,7 @@ Idea (not implemented)
 
 .. code-block:: go
 
-  import "html/template"
+  import "github.com/siongui/gotm"
 
   type TemplateManager struct {
   	StdTmpl	*template.Template
