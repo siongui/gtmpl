@@ -1,4 +1,4 @@
-package gossg
+package gotm
 
 import (
 	"testing"

@@ -1,4 +1,4 @@
-package gossg
+package gotm
 
 import (
 	"github.com/chai2010/gettext-go/gettext"

@@ -1,5 +1,5 @@
-// Some utilities for Go template
-package gossg
+// Go template manager
+package gotm
 
 import (
 	"html/template"
