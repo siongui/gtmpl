@@ -3,9 +3,21 @@ package gotm
 
 import (
 	"html/template"
+	"io"
 	"os"
 	"path/filepath"
 )
+
+type TemplateManager struct {
+	name    string
+	StdTmpl *template.Template
+}
+
+func NewTemplateManager(name string) *TemplateManager {
+	return &TemplateManager{
+		name: name,
+	}
+}
 
 // Recursively get all file paths in directory, including sub-directories.
 func GetAllFilePathsInDirectory(dirpath string) ([]string, error) {
@@ -27,12 +39,13 @@ func GetAllFilePathsInDirectory(dirpath string) ([]string, error) {
 }
 
 // Recursively parse all files in directory, including sub-directories.
-func ParseDirectory(dirpath string) (*template.Template, error) {
+func (tm *TemplateManager) ParseDirectory(dirpath string) (err error) {
 	paths, err := GetAllFilePathsInDirectory(dirpath)
 	if err != nil {
-		return nil, err
+		return
 	}
-	return template.ParseFiles(paths...)
+	tm.StdTmpl, err = template.ParseFiles(paths...)
+	return
 }
 
 // Recursively parse all files in directory, including sub-directories with
@@ -40,15 +53,21 @@ func ParseDirectory(dirpath string) (*template.Template, error) {
 //
 // *gettext* function will translate input string according to installed
 // translations and locale.
-func ParseDirectoryWithGettextFunction(dirpath string) (*template.Template, error) {
+func (tm *TemplateManager) ParseDirectoryWithGettextFunction(dirpath string) (err error) {
 	paths, err := GetAllFilePathsInDirectory(dirpath)
 	if err != nil {
-		return nil, err
+		return
 	}
 
 	funcMap := template.FuncMap{
 		"gettext": Translate,
 	}
 
-	return template.New("").Funcs(funcMap).ParseFiles(paths...)
+	tm.StdTmpl, err = template.New(tm.name).Funcs(funcMap).ParseFiles(paths...)
+	return
+}
+
+// Same paramaters as *template.ExecuteTemplate
+func (tm *TemplateManager) ExecuteTemplate(wr io.Writer, name string, data interface{}) error {
+	return tm.StdTmpl.ExecuteTemplate(wr, name, data)
 }

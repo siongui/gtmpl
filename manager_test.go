@@ -50,15 +50,18 @@ func TestTemplateToHtml(t *testing.T) {
 		Title: "Test Page",
 	}
 
-	tmpl, err := ParseDirectory("theme/template")
+	tm := NewTemplateManager("")
+	err := tm.ParseDirectory("theme/template")
 	if err != nil {
 		t.Error(err)
+		return
 	}
 
 	var b bytes.Buffer
-	err = tmpl.ExecuteTemplate(&b, "index.html", &data)
+	err = tm.ExecuteTemplate(&b, "index.html", &data)
 	if err != nil {
 		t.Error(err)
+		return
 	}
 	if b.String() != html {
 		t.Error("bad html")
@@ -71,16 +74,19 @@ func TestI18nTemplateToHtml(t *testing.T) {
 		Title: "Test Page",
 	}
 
-	tmpl, err := ParseDirectoryWithGettextFunction("theme/template-i18n")
+	tm := NewTemplateManager("")
+	err := tm.ParseDirectoryWithGettextFunction("theme/template-i18n")
 	if err != nil {
 		t.Error(err)
+		return
 	}
 
 	SetLocale("zh_TW")
 	var b bytes.Buffer
-	err = tmpl.ExecuteTemplate(&b, "index.html", &data)
+	err = tm.ExecuteTemplate(&b, "index.html", &data)
 	if err != nil {
 		t.Error(err)
+		return
 	}
 	if b.String() != htmlZhtw {
 		t.Error("bad zh_TW html")

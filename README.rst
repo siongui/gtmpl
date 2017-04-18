@@ -42,10 +42,6 @@ Idea (not implemented)
 
   import "github.com/siongui/gotm"
 
-  type TemplateManager struct {
-  	StdTmpl	*template.Template
-  }
-
   // include gettext by default
   tm := gotm.New(name, dir)
 
