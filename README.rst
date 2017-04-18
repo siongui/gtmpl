@@ -19,12 +19,13 @@ Go Template Manager
 
 .. image:: https://img.shields.io/badge/Status-Beta-brightgreen.svg
 
-Go_ tempalte manager (`text/template`_ and `html/template`_).
+Go_ tempalte manager (`text/template`_ and `html/template`_). Try to be similar
+to grender_ or render_, but with gettext_ support in templates.
 
 Development Environment:
 
   - `Ubuntu 16.10`_
-  - `Go 1.7.5`_
+  - `Go 1.8.1`_
 
 
 Install
@@ -35,8 +36,8 @@ Install
   go get -u github.com/siongui/gotm
 
 
-Idea (not implemented)
-++++++++++++++++++++++
+Idea (not finish to implement)
+++++++++++++++++++++++++++++++
 
 .. code-block:: go
 
@@ -46,9 +47,9 @@ Idea (not implemented)
   tm := gotm.New(name, dir)
 
   // i18n
-  tm.SetupMessagesDomain("locale/")
+  gotm.SetupMessagesDomain("locale/")
 
-  tm.SetLocale("zh_TW")
+  gotm.SetLocale("zh_TW")
 
   // output
   tm.Render(io.Writer, tmplname, yamlfile)
@@ -78,8 +79,11 @@ References
        | `GitHub - unrolled/render: Go package for easily rendering JSON, XML, binary data, and HTML templates responses. <https://github.com/unrolled/render>`_
 
 .. _Go: https://golang.org/
+.. _grender: https://github.com/dannyvankooten/grender
+.. _render: https://github.com/unrolled/render
+.. _gettext: https://github.com/chai2010/gettext-go
 .. _Ubuntu 16.10: http://releases.ubuntu.com/16.10/
-.. _Go 1.7.5: https://golang.org/dl/
+.. _Go 1.8.1: https://golang.org/dl/
 .. _git clone: https://www.google.com/search?q=git+clone
 .. _text/template: https://golang.org/pkg/text/template/
 .. _html/template: https://golang.org/pkg/html/template/
