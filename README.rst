@@ -78,6 +78,10 @@ References
        | `GitHub - dannyvankooten/grender: Go package for easily rendering JSON/XML data and HTML templates <https://github.com/dannyvankooten/grender>`_
        | `GitHub - unrolled/render: Go package for easily rendering JSON, XML, binary data, and HTML templates responses. <https://github.com/unrolled/render>`_
 
+.. [6] | `Go template rendering or Node.js template rendering? : golang <https://www.reddit.com/r/golang/comments/68i04t/go_template_rendering_or_nodejs_template_rendering/>`_
+       | `GitHub - titpetric/egon: An ERB-style templating language for Go. <https://github.com/titpetric/egon>`_
+       | `books/12fa-docker-golang/chapter7 at master · titpetric/books · GitHub <https://github.com/titpetric/books/tree/master/12fa-docker-golang/chapter7>`_
+
 .. _Go: https://golang.org/
 .. _grender: https://github.com/dannyvankooten/grender
 .. _render: https://github.com/unrolled/render
