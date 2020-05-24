@@ -25,7 +25,7 @@ to grender_ or render_, but with gettext_ support in templates.
 Development Environment:
 
   - `Ubuntu 20.04`_
-  - `Go 1.13.5`_
+  - `Go 1.14.3`_
 
 
 Install
@@ -87,7 +87,7 @@ References
 .. _render: https://github.com/unrolled/render
 .. _gettext: https://github.com/chai2010/gettext-go
 .. _Ubuntu 20.04: http://releases.ubuntu.com/20.04/
-.. _Go 1.13.5: https://golang.org/dl/
+.. _Go 1.14.3: https://golang.org/dl/
 .. _git clone: https://www.google.com/search?q=git+clone
 .. _text/template: https://golang.org/pkg/text/template/
 .. _html/template: https://golang.org/pkg/html/template/

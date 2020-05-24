@@ -5,7 +5,7 @@ export GOROOT=$(realpath ../go)
 export GOPATH=$(realpath .)
 export PATH := $(GOROOT)/bin:$(GOPATH)/bin:$(PATH)
 
-GO_VERSION=1.13.5
+GO_VERSION=1.14.3
 DEV_DIR=../
 
 test: fmt
@@ -21,7 +21,7 @@ update_ubuntu:
 
 download_go:
 	@echo "\033[92mDownloading and Installing Go ...\033[0m"
-	@cd $(DEV_DIR) ; wget https://storage.googleapis.com/golang/go$(GO_VERSION).linux-amd64.tar.gz
+	@cd $(DEV_DIR) ; wget https://dl.google.com/go/go$(GO_VERSION).linux-amd64.tar.gz
 	@cd $(DEV_DIR) ; tar xvzf go$(GO_VERSION).linux-amd64.tar.gz
 
 install:
