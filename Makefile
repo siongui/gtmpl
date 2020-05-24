@@ -5,7 +5,7 @@ export GOROOT=$(realpath ../go)
 export GOPATH=$(realpath .)
 export PATH := $(GOROOT)/bin:$(GOPATH)/bin:$(PATH)
 
-GO_VERSION=1.7.5
+GO_VERSION=1.13.5
 DEV_DIR=../
 
 test: fmt
@@ -25,4 +25,4 @@ download_go:
 	@cd $(DEV_DIR) ; tar xvzf go$(GO_VERSION).linux-amd64.tar.gz
 
 install:
-	@go get -u github.com/chai2010/gettext-go/gettext
+	@go get -u github.com/chai2010/gettext-go

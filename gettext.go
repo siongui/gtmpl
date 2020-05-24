@@ -1,22 +1,22 @@
 package gotm
 
 import (
-	"github.com/chai2010/gettext-go/gettext"
+	"github.com/chai2010/gettext-go"
 )
 
-// https://godoc.org/github.com/chai2010/gettext-go/gettext#BindTextdomain
-func BindTextdomain(domain, path string, zipData []byte) (domains, paths []string) {
-	return gettext.BindTextdomain(domain, path, zipData)
+// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#BindLocale
+func BindTextdomain(domain, path string, zipData []byte) {
+	gettext.BindLocale(gettext.New(domain, path))
 }
 
-// https://godoc.org/github.com/chai2010/gettext-go/gettext#SetLocale
+// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#SetLanguage
 func SetLocale(locale string) string {
-	return gettext.SetLocale(locale)
+	return gettext.SetLanguage(locale)
 }
 
-// https://godoc.org/github.com/chai2010/gettext-go/gettext#Textdomain
+// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#SetDomain
 func Textdomain(domain string) string {
-	return gettext.Textdomain(domain)
+	return gettext.SetDomain(domain)
 }
 
 // return gettext.PGettext("", msgid)
@@ -33,6 +33,6 @@ Shorthand for
 
 */
 func SetupMessagesDomain(dirpath string) {
-	gettext.BindTextdomain("messages", dirpath, nil)
+	gettext.BindLocale(gettext.New("messages", dirpath))
 	Textdomain("messages")
 }
