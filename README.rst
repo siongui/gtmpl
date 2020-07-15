@@ -5,27 +5,31 @@ Go Template Manager
 .. image:: https://img.shields.io/badge/Language-Go-blue.svg
    :target: https://golang.org/
 
-.. image:: https://godoc.org/github.com/siongui/gotm?status.png
-   :target: https://godoc.org/github.com/siongui/gotm
+.. image:: https://godoc.org/github.com/siongui/go-gettext-templete?status.svg
+   :target: https://godoc.org/github.com/siongui/go-gettext-templete
 
-.. image:: https://api.travis-ci.org/siongui/gotm.png?branch=master
+.. image:: https://api.travis-ci.org/siongui/go-gettext-templete.png?branch=master
+   :target: https://travis-ci.org/siongui/go-gettext-templete
+
+.. .. image:: https://api.travis-ci.org/siongui/gotm.svg?branch=master
    :target: https://travis-ci.org/siongui/gotm
 
-.. image:: https://goreportcard.com/badge/github.com/siongui/gotm
-   :target: https://goreportcard.com/report/github.com/siongui/gotm
+.. image:: https://goreportcard.com/badge/github.com/siongui/go-gettext-templete
+   :target: https://goreportcard.com/report/github.com/siongui/go-gettext-templete
 
 .. image:: https://img.shields.io/badge/license-Unlicense-blue.svg
-   :target: https://raw.githubusercontent.com/siongui/gotm/master/UNLICENSE
+   :target: https://github.com/siongui/go-gettext-templete/blob/master/UNLICENSE
 
 .. image:: https://img.shields.io/badge/Status-Beta-brightgreen.svg
 
-Go_ tempalte manager (`text/template`_ and `html/template`_). Try to be similar
-to grender_ or render_, but with gettext_ support in templates.
+Go_ tempalte manager (`text/template`_ and `html/template`_, currently use only
+`html/template`_). Try to be similar to grender_ or render_, but with gettext_
+support in templates.
 
 Development Environment:
 
   - `Ubuntu 20.04`_
-  - `Go 1.14.3`_
+  - `Go 1.14.4`_
 
 
 Install
@@ -33,15 +37,20 @@ Install
 
 .. code-block:: bash
 
-  go get -u github.com/siongui/gotm
+  go get -u github.com/siongui/go-gettext-templete
 
 
 Idea (not finish to implement)
 ++++++++++++++++++++++++++++++
 
+The gettext_ feature is provided by `chai2010/gettext-go`_, which is pure Go
+solution for gexttext_.
+
 .. code-block:: go
 
-  import "github.com/siongui/gotm"
+  import (
+  	"github.com/siongui/go-gettext-templete"
+  )
 
   // include gettext by default
   tm := gotm.New(name, dir)
@@ -85,10 +94,11 @@ References
 .. _Go: https://golang.org/
 .. _grender: https://github.com/dannyvankooten/grender
 .. _render: https://github.com/unrolled/render
-.. _gettext: https://github.com/chai2010/gettext-go
-.. _Ubuntu 20.04: http://releases.ubuntu.com/20.04/
-.. _Go 1.14.3: https://golang.org/dl/
+.. _gettext: https://www.google.com/search?q=gettext
+.. _chai2010/gettext-go: https://github.com/chai2010/gettext-go
+.. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
+.. _Go 1.14.4: https://golang.org/dl/
 .. _git clone: https://www.google.com/search?q=git+clone
 .. _text/template: https://golang.org/pkg/text/template/
 .. _html/template: https://golang.org/pkg/html/template/
-.. _UNLICENSE: http://unlicense.org/
+.. _UNLICENSE: https://unlicense.org/

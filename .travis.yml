@@ -1,2 +1,9 @@
+dist: bionic
 language: go
-script: go get github.com/chai2010/gettext-go && go test -v
+go:
+  - 1.12.17
+  - 1.14.4
+install:
+  - go get github.com/chai2010/gettext-go
+script:
+  - go test -v
