@@ -41,7 +41,7 @@ Idea (not finish to implement)
 ++++++++++++++++++++++++++++++
 
 The gettext_ feature is provided by `chai2010/gettext-go`_, which is pure Go
-solution for gexttext_.
+solution for gettext_.
 
 .. code-block:: go
 

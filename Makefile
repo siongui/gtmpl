@@ -9,7 +9,8 @@ GO_VERSION=1.14.3
 DEV_DIR=../
 
 test: fmt
-	@go test -v
+	go test -v gettext.go gettext_test.go
+	go test -v gettext.go parse.go parse_test.go
 
 fmt:
 	@echo "\033[92mGo fmt source code...\033[0m"

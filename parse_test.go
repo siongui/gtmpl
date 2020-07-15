@@ -50,7 +50,7 @@ func TestTemplateToHtml(t *testing.T) {
 		Title: "Test Page",
 	}
 
-	tmpl, err := ParseDirectoryTree("locale/", "theme/template")
+	tmpl, err := ParseDirectoryTree("messages", "locale/", "theme/template")
 	if err != nil {
 		t.Error(err)
 		return
@@ -72,7 +72,7 @@ func TestI18nTemplateToHtml(t *testing.T) {
 		Title: "Test Page",
 	}
 
-	tmpl, err := ParseDirectoryTree("locale/", "theme/template-i18n")
+	tmpl, err := ParseDirectoryTree("messages", "locale/", "theme/template-i18n")
 	if err != nil {
 		t.Error(err)
 		return

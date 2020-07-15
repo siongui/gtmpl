@@ -13,11 +13,14 @@ func SetLanguage(locale string) string {
 }
 
 // Translate returns gettext.PGettext("", msgid)
+//
+// see https://godoc.org/github.com/chai2010/gettext-go#PGettext for more
+// details.
 func Translate(msgid string) string {
 	return gettext.PGettext("", msgid)
 }
 
-func setupMessagesDomain(dirpath string) {
-	gettext.BindLocale(gettext.New("messages", dirpath))
-	gettext.SetDomain("messages")
+func setupMessagesDomain(domain, dir string) {
+	gettext.BindLocale(gettext.New(domain, dir))
+	gettext.SetDomain(domain)
 }

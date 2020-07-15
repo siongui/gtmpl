@@ -5,7 +5,7 @@ import (
 )
 
 func TestGettext(t *testing.T) {
-	setupMessagesDomain("locale/")
+	setupMessagesDomain("messages", "locale/")
 
 	SetLanguage("zh_TW")
 	if Translate("Pāḷi Dictionary") != "巴利字典" {
