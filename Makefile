@@ -25,4 +25,4 @@ download_go:
 	@cd $(DEV_DIR) ; tar xvzf go$(GO_VERSION).linux-amd64.tar.gz
 
 install:
-	@go get -u github.com/chai2010/gettext-go
+	go get -u github.com/chai2010/gettext-go

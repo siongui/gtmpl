@@ -50,15 +50,14 @@ func TestTemplateToHtml(t *testing.T) {
 		Title: "Test Page",
 	}
 
-	tm := NewTemplateManager("")
-	err := tm.ParseDirectory("theme/template")
+	tmpl, err := ParseDirectoryTree("locale/", "theme/template")
 	if err != nil {
 		t.Error(err)
 		return
 	}
 
 	var b bytes.Buffer
-	err = tm.ExecuteTemplate(&b, "index.html", &data)
+	err = tmpl.ExecuteTemplate(&b, "index.html", &data)
 	if err != nil {
 		t.Error(err)
 		return
@@ -69,21 +68,19 @@ func TestTemplateToHtml(t *testing.T) {
 }
 
 func TestI18nTemplateToHtml(t *testing.T) {
-	SetupMessagesDomain("locale/")
 	data := TemplateData{
 		Title: "Test Page",
 	}
 
-	tm := NewTemplateManager("")
-	err := tm.ParseDirectoryWithGettextFunction("theme/template-i18n")
+	tmpl, err := ParseDirectoryTree("locale/", "theme/template-i18n")
 	if err != nil {
 		t.Error(err)
 		return
 	}
 
-	SetLocale("zh_TW")
+	SetLanguage("zh_TW")
 	var b bytes.Buffer
-	err = tm.ExecuteTemplate(&b, "index.html", &data)
+	err = tmpl.ExecuteTemplate(&b, "index.html", &data)
 	if err != nil {
 		t.Error(err)
 		return

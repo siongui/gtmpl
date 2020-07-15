@@ -4,35 +4,20 @@ import (
 	"github.com/chai2010/gettext-go"
 )
 
-// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#BindLocale
-func BindTextdomain(domain, path string, zipData []byte) {
-	gettext.BindLocale(gettext.New(domain, path))
-}
-
-// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#SetLanguage
-func SetLocale(locale string) string {
+// SetLanguage sets the locale to be used to render the template.
+//
+// see https://godoc.org/github.com/chai2010/gettext-go#SetLanguage for more
+// details.
+func SetLanguage(locale string) string {
 	return gettext.SetLanguage(locale)
 }
 
-// https://pkg.go.dev/github.com/chai2010/gettext-go?tab=doc#SetDomain
-func Textdomain(domain string) string {
-	return gettext.SetDomain(domain)
-}
-
-// return gettext.PGettext("", msgid)
+// Translate returns gettext.PGettext("", msgid)
 func Translate(msgid string) string {
 	return gettext.PGettext("", msgid)
 }
 
-/*
-
-Shorthand for
-
-	BindTextdomain("messages", dirpath, nil)
-	Textdomain("messages")
-
-*/
-func SetupMessagesDomain(dirpath string) {
+func setupMessagesDomain(dirpath string) {
 	gettext.BindLocale(gettext.New("messages", dirpath))
-	Textdomain("messages")
+	gettext.SetDomain("messages")
 }

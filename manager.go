@@ -3,24 +3,11 @@ package gotm
 
 import (
 	"html/template"
-	"io"
 	"os"
 	"path/filepath"
 )
 
-type TemplateManager struct {
-	name    string
-	StdTmpl *template.Template
-}
-
-func NewTemplateManager(name string) *TemplateManager {
-	return &TemplateManager{
-		name: name,
-	}
-}
-
-// Recursively get all file paths in directory, including sub-directories.
-func GetAllFilePathsInDirectory(dirpath string) ([]string, error) {
+func getAllFilePathsInDirectory(dirpath string) ([]string, error) {
 	var paths []string
 	err := filepath.Walk(dirpath, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -39,13 +26,12 @@ func GetAllFilePathsInDirectory(dirpath string) ([]string, error) {
 }
 
 // Recursively parse all files in directory, including sub-directories.
-func (tm *TemplateManager) ParseDirectory(dirpath string) (err error) {
-	paths, err := GetAllFilePathsInDirectory(dirpath)
+func ParseDirectoryTree(localeDir, dir string) (t *template.Template, err error) {
+	paths, err := getAllFilePathsInDirectory(dir)
 	if err != nil {
 		return
 	}
-	tm.StdTmpl, err = template.ParseFiles(paths...)
-	return
+	return ParseFiles(localeDir, paths...)
 }
 
 // Recursively parse all files in directory, including sub-directories with
@@ -53,21 +39,9 @@ func (tm *TemplateManager) ParseDirectory(dirpath string) (err error) {
 //
 // *gettext* function will translate input string according to installed
 // translations and locale.
-func (tm *TemplateManager) ParseDirectoryWithGettextFunction(dirpath string) (err error) {
-	paths, err := GetAllFilePathsInDirectory(dirpath)
-	if err != nil {
-		return
-	}
-
+func ParseFiles(localeDir string, filenames ...string) (*template.Template, error) {
 	funcMap := template.FuncMap{
 		"gettext": Translate,
 	}
-
-	tm.StdTmpl, err = template.New(tm.name).Funcs(funcMap).ParseFiles(paths...)
-	return
-}
-
-// Same paramaters as *template.ExecuteTemplate
-func (tm *TemplateManager) ExecuteTemplate(wr io.Writer, name string, data interface{}) error {
-	return tm.StdTmpl.ExecuteTemplate(wr, name, data)
+	return template.New(filenames[0]).Funcs(funcMap).ParseFiles(filenames...)
 }

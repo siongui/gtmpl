@@ -5,19 +5,19 @@ import (
 )
 
 func TestGettext(t *testing.T) {
-	SetupMessagesDomain("locale/")
+	setupMessagesDomain("locale/")
 
-	SetLocale("zh_TW")
+	SetLanguage("zh_TW")
 	if Translate("Pāḷi Dictionary") != "巴利字典" {
 		t.Error("translate Pāḷi Dictionary (zh_TW) fail")
 	}
 
-	SetLocale("vi_VN")
+	SetLanguage("vi_VN")
 	if Translate("Pāḷi Dictionary") != "Từ điển Pāḷi" {
 		t.Error("translate Pāḷi Dictionary (vi_VN) fail")
 	}
 
-	SetLocale("fr_FR")
+	SetLanguage("fr_FR")
 	if Translate("Pāḷi Dictionary") != "Dictionnaire Pāḷi" {
 		t.Error("translate Pāḷi Dictionary (fr_FR) fail")
 	}
