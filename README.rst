@@ -1,27 +1,25 @@
-========================
-Go Template with gettext
-========================
+================================
+Go Template With Gettext Support
+================================
 
 .. image:: https://img.shields.io/badge/Language-Go-blue.svg
    :target: https://golang.org/
 
-.. image:: https://godoc.org/github.com/siongui/go-gettext-templete?status.svg
-   :target: https://godoc.org/github.com/siongui/go-gettext-templete
+.. image:: https://godoc.org/github.com/siongui/gtmpl?status.svg
+   :target: https://godoc.org/github.com/siongui/gtmpl
 
 .. image:: https://api.travis-ci.org/siongui/gotm.svg?branch=master
    :target: https://travis-ci.org/siongui/gotm
 
-.. image:: https://goreportcard.com/badge/github.com/siongui/go-gettext-templete
-   :target: https://goreportcard.com/report/github.com/siongui/go-gettext-templete
+.. image:: https://goreportcard.com/badge/github.com/siongui/gtmpl
+   :target: https://goreportcard.com/report/github.com/siongui/gtmpl
 
 .. image:: https://img.shields.io/badge/license-Unlicense-blue.svg
-   :target: https://github.com/siongui/go-gettext-templete/blob/master/UNLICENSE
+   :target: https://github.com/siongui/gtmpl/blob/master/UNLICENSE
 
 .. image:: https://img.shields.io/badge/Status-Beta-brightgreen.svg
 
-Go_ tempalte manager (`text/template`_ and `html/template`_, currently use only
-`html/template`_). Try to be similar to grender_ or render_, but with gettext_
-support in templates.
+Go_ `html/template`_ with gettext_ support.
 
 Development Environment:
 
@@ -34,11 +32,11 @@ Install
 
 .. code-block:: bash
 
-  go get -u github.com/siongui/go-gettext-templete
+  go get -u github.com/siongui/gtmpl
 
 
-Idea (not finish to implement)
-++++++++++++++++++++++++++++++
+Usage
++++++
 
 The gettext_ feature is provided by `chai2010/gettext-go`_, which is pure Go
 solution for gettext_.
@@ -46,19 +44,10 @@ solution for gettext_.
 .. code-block:: go
 
   import (
-  	"github.com/siongui/go-gettext-templete"
+  	"github.com/siongui/gtmpl"
   )
 
-  // include gettext by default
-  tm := gotm.New(name, dir)
-
-  // i18n
-  gotm.SetupMessagesDomain("locale/")
-
-  gotm.SetLocale("zh_TW")
-
-  // output
-  tm.Render(io.Writer, tmplname, yamlfile)
+  // TODO: add sample code here
 
 
 UNLICENSE
@@ -80,7 +69,8 @@ References
 .. [4] | `godoc code - Google search <https://www.google.com/search?q=godoc+code>`_
        | `godoctricks - GoDoc <https://godoc.org/github.com/fluhus/godoc-tricks>`_
 
-.. [5] | `grender: stdlib templates with additional "extends" support : golang <https://www.reddit.com/r/golang/comments/61hcfg/grender_stdlib_templates_with_additional_extends/>`_
+.. [5] | render_ and grender_
+       | `grender: stdlib templates with additional "extends" support : golang <https://www.reddit.com/r/golang/comments/61hcfg/grender_stdlib_templates_with_additional_extends/>`_
        | `GitHub - dannyvankooten/grender: Go package for easily rendering JSON/XML data and HTML templates <https://github.com/dannyvankooten/grender>`_
        | `GitHub - unrolled/render: Go package for easily rendering JSON, XML, binary data, and HTML templates responses. <https://github.com/unrolled/render>`_
 

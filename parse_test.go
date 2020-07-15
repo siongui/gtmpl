@@ -1,4 +1,4 @@
-package gotm
+package gtmpl
 
 import (
 	"bytes"

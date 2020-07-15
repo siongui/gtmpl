@@ -1,4 +1,4 @@
-package gotm
+package gtmpl
 
 import (
 	"github.com/chai2010/gettext-go"

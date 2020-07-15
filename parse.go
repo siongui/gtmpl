@@ -1,5 +1,5 @@
-// Go template manager
-package gotm
+// Package gtmpl add gettext support to Go standard html/template package.
+package gtmpl
 
 import (
 	"html/template"
