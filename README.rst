@@ -1,6 +1,6 @@
-===================
-Go Template Manager
-===================
+========================
+Go Template with gettext
+========================
 
 .. image:: https://img.shields.io/badge/Language-Go-blue.svg
    :target: https://golang.org/
@@ -8,10 +8,7 @@ Go Template Manager
 .. image:: https://godoc.org/github.com/siongui/go-gettext-templete?status.svg
    :target: https://godoc.org/github.com/siongui/go-gettext-templete
 
-.. image:: https://api.travis-ci.org/siongui/go-gettext-templete.png?branch=master
-   :target: https://travis-ci.org/siongui/go-gettext-templete
-
-.. .. image:: https://api.travis-ci.org/siongui/gotm.svg?branch=master
+.. image:: https://api.travis-ci.org/siongui/gotm.svg?branch=master
    :target: https://travis-ci.org/siongui/gotm
 
 .. image:: https://goreportcard.com/badge/github.com/siongui/go-gettext-templete
