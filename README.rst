@@ -41,13 +41,21 @@ Usage
 The gettext_ feature is provided by `chai2010/gettext-go`_, which is pure Go
 solution for gettext_.
 
-.. code-block:: go
+Follow `gettext workflow`_ to prepare PO files, we need to mark translatable
+strings from input files. In our cases here, the translatable string
+``Pāḷi Dictionary`` is marked as ``{{gettext "Pāḷi Dictionary"}}`` (see
+`theme/template-i18n/index.html <theme/template-i18n/index.html>`_). If we
+run xgettext_ directly on the Go template, we get nothing. We can use sed_ to
+convert the marked strings in Go template to the extractable syntax as follows:
 
-  import (
-  	"github.com/siongui/gtmpl"
-  )
+.. code-block:: bash
 
-  // TODO: add sample code here
+  $ sed "s/{{gettext \(".*"\)}}/{{gettext(\1)}}/g" theme/template-i18n/index.html | xgettext --no-wrap --language=c --from-code=UTF-8 --output=locale/messages.pot -
+
+Then we follow the normal workflow again to finish the translation and get the
+PO files to be used by `chai2010/gettext-go`_ package.
+
+See `parse_test.go <parse_test.go>`_ for how to create HTML files.
 
 
 UNLICENSE
@@ -78,14 +86,16 @@ References
        | `GitHub - titpetric/egon: An ERB-style templating language for Go. <https://github.com/titpetric/egon>`_
        | `books/12fa-docker-golang/chapter7 at master · titpetric/books · GitHub <https://github.com/titpetric/books/tree/master/12fa-docker-golang/chapter7>`_
 
+.. [7] `xgettext Extract Translatable Strings From Golang html/template <https://siongui.github.io/2016/01/19/xgettext-extract-translatable-string-from-go-html-template/>`_
+
 .. _Go: https://golang.org/
-.. _grender: https://github.com/dannyvankooten/grender
-.. _render: https://github.com/unrolled/render
+.. _html/template: https://golang.org/pkg/html/template/
 .. _gettext: https://www.google.com/search?q=gettext
-.. _chai2010/gettext-go: https://github.com/chai2010/gettext-go
 .. _Ubuntu 20.04: https://releases.ubuntu.com/20.04/
 .. _Go 1.14.4: https://golang.org/dl/
-.. _git clone: https://www.google.com/search?q=git+clone
-.. _text/template: https://golang.org/pkg/text/template/
-.. _html/template: https://golang.org/pkg/html/template/
+.. _chai2010/gettext-go: https://github.com/chai2010/gettext-go
+.. _gettext workflow: https://www.google.com/search?q=gettext+workflow
+.. _sed: https://www.google.com/search?q=sed
+.. _grender: https://github.com/dannyvankooten/grender
+.. _render: https://github.com/unrolled/render
 .. _UNLICENSE: https://unlicense.org/

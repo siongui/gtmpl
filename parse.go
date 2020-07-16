@@ -1,4 +1,4 @@
-// Package gtmpl add gettext support to Go standard html/template package.
+// Package gtmpl adds gettext support to Go standard html/template package.
 package gtmpl
 
 import (
@@ -25,7 +25,8 @@ func getAllFilePathsInDirectory(dirpath string) ([]string, error) {
 	return paths, nil
 }
 
-// Recursively parse all files in directory, including sub-directories.
+// ParseDirectoryTree will find all files in directory tree (including
+// sub-directories) and pass filenames to ParseFiles.
 func ParseDirectoryTree(domain, localeDir, dir string) (t *template.Template, err error) {
 	paths, err := getAllFilePathsInDirectory(dir)
 	if err != nil {
@@ -34,11 +35,10 @@ func ParseDirectoryTree(domain, localeDir, dir string) (t *template.Template, er
 	return ParseFiles(domain, localeDir, paths...)
 }
 
-// Recursively parse all files in directory, including sub-directories with
-// *gettext* function.
-//
-// *gettext* function will translate input string according to installed
-// translations and locale.
+// ParseFiles is the same as ParseFiles except gettext function is installed via
+// Funcs method provided by Go standard html/template package. the installed
+// gettext function will use the data given by domain and localeDir arguments to
+// translate the strings in the template.
 func ParseFiles(domain, localeDir string, filenames ...string) (*template.Template, error) {
 	setupMessagesDomain(domain, localeDir)
 	funcMap := template.FuncMap{
