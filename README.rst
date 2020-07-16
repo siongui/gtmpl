@@ -45,8 +45,9 @@ Follow `gettext workflow`_ to prepare PO files, we need to mark translatable
 strings from input files. In our cases here, the translatable string
 ``Pāḷi Dictionary`` is marked as ``{{gettext "Pāḷi Dictionary"}}`` (see
 `theme/template-i18n/index.html <theme/template-i18n/index.html>`_). If we
-run xgettext_ directly on the Go template, we get nothing. We can use sed_ to
-convert the marked strings in Go template to the extractable syntax as follows:
+run xgettext_ directly on the Go template, we get nothing [7]_. We can use sed_
+to convert the marked strings in Go template to the extractable syntax as
+follows:
 
 .. code-block:: bash
 
@@ -95,6 +96,7 @@ References
 .. _Go 1.14.4: https://golang.org/dl/
 .. _chai2010/gettext-go: https://github.com/chai2010/gettext-go
 .. _gettext workflow: https://www.google.com/search?q=gettext+workflow
+.. _xgettext: https://www.google.com/search?q=xgettext
 .. _sed: https://www.google.com/search?q=sed
 .. _grender: https://github.com/dannyvankooten/grender
 .. _render: https://github.com/unrolled/render
